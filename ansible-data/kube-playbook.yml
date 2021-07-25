@@ -8,7 +8,7 @@
   - name: install git
     yum: name=git state=present
 
-  - name: Git clone
+  - name: Retrieve AddressBook repository from github
     git: repo=https://github.com/B4SU/add-book.git dest=/tmp/addbook-project
-  - name: Deploy Kubernetes service
+  - name: Deploy AddressBook application
     command: chdir=/tmp/addbook-project kubectl apply -f addressbook-dep.yml
