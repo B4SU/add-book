@@ -1,0 +1,14 @@
+- hosts: kubemaster
+  become: true
+  become_user: root
+  tasks:
+  - name: start docker
+    service: name=docker state=started
+
+  - name: install git
+    yum: name=git state=present
+
+  - name: Get project repo
+    git: repo=https://github.com/B4SU/demo-project.git dest=/tmp/demo-project
+  - name: Initiate deployment
+    command: chdir=/tmp/demo-project kubectl apply -f addressbook.yml
