@@ -9,6 +9,6 @@
     yum: name=git state=present
 
   - name: Git clone
-    git: repo=https://github.com/B4SU/demo-project.git dest=/tmp/addbook-project
+    git: repo=https://github.com/B4SU/add-book.git dest=/tmp/addbook-project
   - name: Deploy Kubernetes service
     command: chdir=/tmp/addbook-project kubectl apply -f addressbook-dep.yml
